@@ -116,7 +116,7 @@ namespace OsmCsharp.Converters
                 nodeElement.AppendChild(tagElement);
             }
 
-            // Spits the XML as a string.
+            //Finally, spits the XML.
             return doc;
         }
 

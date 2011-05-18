@@ -30,5 +30,13 @@ namespace TestGUI
 
             MessageBox.Show(strNode);
         }
+
+        private void btnWay_Click(object sender, EventArgs e)
+        {
+            var way = new OsmWay();
+            var parser = new OsmWayParser();
+
+            way = parser.FetchOsmWay(int.Parse(textBoxElementId.Text));
+        }
     }
 }

@@ -27,7 +27,35 @@ namespace OsmCsharp.Parsers
             //Reading Metadata
             FetchBasicAttributes(elementXmlWay, ref osmWay);
 
-            //Reading Ways
+            //Reading Way Nodes
+            var nodeList = new List<OsmNode>();
+            XmlNodeList xmlNodes = xmlWay.GetElementsByTagName("nd");
+
+            foreach (XmlNode xmlNode in xmlNodes)
+            {
+                var nodeRef = int.Parse(xmlNode.Attributes["ref"].Value);
+                var nodeParser = new OsmNodeParser();
+                var node = new OsmNode();
+
+                node = nodeParser.FetchOsmNode(nodeRef);
+                nodeList.Add(node);
+            }
+            
+            osmWay.NodesList = nodeList;
+
+            //Reading Tags
+            var tagList = new List<Tag>();
+            XmlNodeList tagXmlNodes = xmlWay.GetElementsByTagName("tag");
+
+            foreach (XmlNode tagXml in tagXmlNodes)
+            {
+                var tag = new Tag();
+                tag.Key = tagXml.Attributes["k"].Value;
+                tag.Value = tagXml.Attributes["v"].Value;
+                tagList.Add(tag);
+            }
+
+            osmWay.TagList = tagList;
 
             throw new NotImplementedException();
         }

@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.textBoxElementId = new System.Windows.Forms.TextBox();
-            this.btnId = new System.Windows.Forms.Button();
+            this.btnNode = new System.Windows.Forms.Button();
+            this.btnWay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxElementId
@@ -39,22 +40,33 @@
             this.textBoxElementId.Size = new System.Drawing.Size(100, 20);
             this.textBoxElementId.TabIndex = 0;
             // 
-            // btnId
+            // btnNode
             // 
-            this.btnId.Location = new System.Drawing.Point(120, 13);
-            this.btnId.Name = "btnId";
-            this.btnId.Size = new System.Drawing.Size(76, 23);
-            this.btnId.TabIndex = 1;
-            this.btnId.Text = "ID";
-            this.btnId.UseVisualStyleBackColor = true;
-            this.btnId.Click += new System.EventHandler(this.btnId_Click);
+            this.btnNode.Location = new System.Drawing.Point(120, 13);
+            this.btnNode.Name = "btnNode";
+            this.btnNode.Size = new System.Drawing.Size(76, 23);
+            this.btnNode.TabIndex = 1;
+            this.btnNode.Text = "Node";
+            this.btnNode.UseVisualStyleBackColor = true;
+            this.btnNode.Click += new System.EventHandler(this.btnId_Click);
+            // 
+            // btnWay
+            // 
+            this.btnWay.Location = new System.Drawing.Point(203, 13);
+            this.btnWay.Name = "btnWay";
+            this.btnWay.Size = new System.Drawing.Size(75, 23);
+            this.btnWay.TabIndex = 2;
+            this.btnWay.Text = "Way";
+            this.btnWay.UseVisualStyleBackColor = true;
+            this.btnWay.Click += new System.EventHandler(this.btnWay_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(208, 45);
-            this.Controls.Add(this.btnId);
+            this.ClientSize = new System.Drawing.Size(291, 45);
+            this.Controls.Add(this.btnWay);
+            this.Controls.Add(this.btnNode);
             this.Controls.Add(this.textBoxElementId);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -66,7 +78,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxElementId;
-        private System.Windows.Forms.Button btnId;
+        private System.Windows.Forms.Button btnNode;
+        private System.Windows.Forms.Button btnWay;
     }
 }
 
