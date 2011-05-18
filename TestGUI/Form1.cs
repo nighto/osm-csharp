@@ -26,7 +26,7 @@ namespace TestGUI
 
             node = parser.FetchOsmNode(int.Parse(textBoxElementId.Text));
 
-            var strNode = node.ToString();
+            var strNode = node.ToXmlString();
 
             MessageBox.Show(strNode);
         }

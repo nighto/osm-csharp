@@ -43,7 +43,7 @@ namespace OsmCsharp.Parsers
             osmElement.User = elementXmlNode.Attributes["user"].Value;
             osmElement.Uid = int.Parse(elementXmlNode.Attributes["uid"].Value);
             osmElement.Visible = Convert.ToBoolean(elementXmlNode.Attributes["visible"].Value);
-            osmElement.Timestamp = DateTime.Parse(elementXmlNode.Attributes["timestamp"].Value);
+            osmElement.Timestamp = DateTime.Parse(elementXmlNode.Attributes["timestamp"].Value).ToUniversalTime();
         }
     }
 }

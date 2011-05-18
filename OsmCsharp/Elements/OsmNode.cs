@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OsmCsharp.Converters;
+using System.Xml;
 
 namespace OsmCsharp.Elements
 {
@@ -15,6 +16,21 @@ namespace OsmCsharp.Elements
         public override string ToString()
         {
             return OsmNodeConverterExtension.ToString(this);
+        }
+
+        public XmlDocument ToXml()
+        {
+            return OsmNodeConverterExtension.ToXml(this);
+        }
+
+        public string ToXmlString()
+        {
+            return OsmNodeConverterExtension.ToXmlString(this);
+        }
+
+        public string ToJson()
+        {
+            return OsmNodeConverterExtension.ToJson(this);
         }
     }
 }
