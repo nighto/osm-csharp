@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Text\OsmNode2Text.cs" />
     <Compile Include="Parsers\OsmNodeParser.cs" />
     <Compile Include="Parsers\OsmRelationParser.cs" />
     <Compile Include="Parsers\OsmWayParser.cs" />
