@@ -10,7 +10,7 @@ namespace OsmCsharp.Elements
     public class OsmRelation : OsmElement
     {
         public List<RelationMember> MembersList { get; set; }
-        public List<Tag> TagsList { get; set; }
+        public List<Tag> TagList { get; set; }
 
         public override string ToString()
         {

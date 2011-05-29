@@ -5,10 +5,8 @@ using System.Text;
 
 namespace OsmCsharp.Elements
 {
-    public class RelationMember
+    public class RelationMember : OsmElement
     {
-        public string Type { get; set; }
-        public int IdRef { get; set; }
         public string Role { get; set; }
     }
 }

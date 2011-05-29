@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +24,54 @@ namespace OsmCsharp.Parsers
             //API always returns a single relation.
             XmlNode elementXmlRelation = xmlRelation.GetElementsByTagName("relation")[0];
 
-            //Reading metadata.
+            //Reading Metadata
             FetchBasicAttributes(elementXmlRelation, osmRelation);
 
-            throw new NotImplementedException();
+            //Reading Relation Members
+            var relationMemberList = new List<RelationMember>();
+            XmlNodeList relationXmlNodes = xmlRelation.GetElementsByTagName("member");
+
+            foreach (XmlNode tagXml in relationXmlNodes)
+            {
+                var member = new RelationMember();
+                var memberType = tagXml.Attributes["type"].Value;
+                var memberId = int.Parse(tagXml.Attributes["ref"].Value);
+                member.Role = tagXml.Attributes["role"].Value;
+
+                if (memberType == "node")
+                {
+                    var node = new OsmNode();
+                    var nodeParser = new OsmNodeParser();
+                    node = nodeParser.FetchOsmNode(memberId);
+                    relationMemberList.Add(node);
+                }
+                else
+                {
+                    if (memberType == "way")
+                    {
+                        var way = new OsmWay();
+                        var wayParser = new OsmWayParser();
+                        way = wayParser.FetchOsmWay(memberId);
+                        relationMemberList.Add(way);
+                    }
+                }
+            }
+
+            //Reading Relation Tags
+            var tagList = new List<Tag>();
+            XmlNodeList tagXmlNodes = xmlRelation.GetElementsByTagName("tag");
+
+            foreach (XmlNode tagXml in tagXmlNodes)
+            {
+                var tag = new Tag();
+                tag.Key = tagXml.Attributes["k"].Value;
+                tag.Value = tagXml.Attributes["v"].Value;
+                tagList.Add(tag);
+            }
+
+            osmRelation.TagList = tagList;
+
+            return osmRelation;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace OsmCsharp.Parsers
             
             osmWay.NodesList = nodeList;
 
-            //Reading Tags
+            //Reading Way Tags
             var tagList = new List<Tag>();
             XmlNodeList tagXmlNodes = xmlWay.GetElementsByTagName("tag");
 
@@ -56,6 +56,7 @@ namespace OsmCsharp.Parsers
             }
 
             osmWay.TagList = tagList;
+
             return osmWay;
         }
     }
