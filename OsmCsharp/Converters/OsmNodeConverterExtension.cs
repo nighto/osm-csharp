@@ -127,7 +127,14 @@ namespace OsmCsharp.Converters
         /// <returns>string</returns>
         public static string ToXmlString(this OsmNode node)
         {
-            return node.ToXml().OuterXml;
+            var stringWriter = new StringWriter(new StringBuilder());
+            var xmlTextWriter = new XmlTextWriter(stringWriter)
+            {
+                Formatting = Formatting.Indented
+            };
+            node.ToXml().Save(xmlTextWriter);
+
+            return stringWriter.ToString();
         }
         
         /// <summary>

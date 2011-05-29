@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OsmCsharp.Elements;
 using System.Xml;
+using System.IO;
 
 namespace OsmCsharp.Converters
 {
@@ -160,7 +161,14 @@ namespace OsmCsharp.Converters
         /// <returns>string</returns>
         public static string ToXmlString(this OsmWay way)
         {
-            return way.ToXml().OuterXml;
+            var stringWriter = new StringWriter(new StringBuilder());
+            var xmlTextWriter = new XmlTextWriter(stringWriter)
+            {
+                Formatting = Formatting.Indented
+            };
+            way.ToXml().Save(xmlTextWriter);
+
+            return stringWriter.ToString();
         }
 
         /// <summary>
