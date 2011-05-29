@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\OsmNodeConverterExtension.cs" />
+    <Compile Include="Converters\OsmRelationConverterExtension.cs" />
+    <Compile Include="Converters\OsmWayConverterExtension.cs" />
     <Compile Include="Parsers\OsmNodeParser.cs" />
     <Compile Include="Parsers\OsmRelationParser.cs" />
     <Compile Include="Parsers\OsmWayParser.cs" />

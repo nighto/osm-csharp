@@ -130,6 +130,11 @@ namespace OsmCsharp.Converters
             return node.ToXml().OuterXml;
         }
         
+        /// <summary>
+        /// Returns a string with node properties as JSON.
+        /// </summary>
+        /// <param name="node">OsmNode</param>
+        /// <returns>string</returns>
         public static string ToJson(this OsmNode node)
         {
             throw new NotImplementedException();

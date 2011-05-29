@@ -17,24 +17,14 @@ namespace OsmCsharp.Elements
             return OsmWayConverterExtension.ToString(this);
         }
 
-        public XmlNode ToXml()
+        public XmlDocument ToXml()
         {
             return OsmWayConverterExtension.ToXml(this);
-        }
-
-        public XmlDocument ToFullXml()
-        {
-            return OsmWayConverterExtension.ToFullXml(this);
         }
 
         public string ToXmlString()
         {
             return OsmWayConverterExtension.ToXmlString(this);
-        }
-
-        public string ToFullXmlString()
-        {
-            return OsmWayConverterExtension.ToFullXmlString(this);
         }
 
         public string ToJson()
