@@ -56,8 +56,7 @@ namespace OsmCsharp.Parsers
             }
 
             osmWay.TagList = tagList;
-
-            throw new NotImplementedException();
+            return osmWay;
         }
     }
 }
